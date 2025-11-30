@@ -1,0 +1,608 @@
+/* =========================================================
+   1. GLOBAL RESET & BASE
+========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    line-height: 1.65;
+    background-color: #f2f2f5;
+    color: #2e2e2e;
+    padding-bottom: 80px;
+
+    opacity: 1;
+    transition: opacity 0.6s ease-in-out,
+                background-color 0.3s ease,
+                color 0.3s ease;
+}
+
+/* 🔹 로그인 페이지 전체 중앙 배치 모드 */
+body.login-center {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body.page-fade { opacity: 0; }
+
+a { text-decoration: none; color: inherit; }
+
+ul { list-style: none; }
+
+
+/* =========================================================
+   2. HEADER (네비게이션)
+========================================================= */
+header {
+    background: #ffffff;
+    border-bottom: 1px solid #dcdde1;
+    padding: 22px 0;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.04);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.site-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 8px;
+}
+
+.main-nav li a {
+    padding: 8px 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    color: #555;
+    transition: 0.3s;
+}
+
+.main-nav li a:hover {
+    background: #e8e8ec;
+    color: #111;
+}
+
+.right-nav {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#welcomeUser {
+    font-size: 15px;
+    font-weight: 600;
+    color: #666;
+}
+
+.logout-btn {
+    background: #444;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.logout-btn:hover { background: #222; }
+
+.theme-btn {
+    background: #ffffff;
+    color: #333;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.theme-btn:hover { background: #f0f0f5; }
+
+
+/* =========================================================
+   3. MAIN CONTENT
+========================================================= */
+main {
+    width: 85%;
+    max-width: 1100px;
+    margin: 60px auto;
+}
+
+main h2 {
+    font-size: 24px;
+    margin-bottom: 18px;
+    color: #222;
+}
+
+main h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   4. HERO SECTION
+========================================================= */
+.hero {
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 14px;
+    box-shadow: 0px 4px 14px rgba(0,0,0,0.04);
+    margin-bottom: 40px;
+    border: 1px solid #e3e3e6;
+}
+
+
+/* =========================================================
+   5. IMAGE BOX
+========================================================= */
+.img-box {
+    width: 100%;
+    max-width: 280px;
+    height: 190px;
+    background: #e5e5e7;
+    border-radius: 14px;
+    overflow: hidden;
+    margin: 18px 0;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.05);
+}
+
+.main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.intro .img-box {
+    max-width: 520px;
+    height: 280px;
+}
+
+
+/* =========================================================
+   6. CARD COMPONENTS
+========================================================= */
+.card-list { margin-top: 20px; }
+
+.place-card,
+.food-card {
+    width: 48%;
+    float: left;
+    background: #ffffff;
+    padding: 20px 18px;
+    border-radius: 14px;
+    border: 1px solid #e2e2e5;
+    box-shadow: 0px 3px 12px rgba(0,0,0,0.04);
+    margin-bottom: 28px;
+    transition: 0.3s ease;
+}
+
+.place-card:hover,
+.food-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 6px 20px rgba(0,0,0,0.09);
+}
+
+.place-card:nth-child(2n+1),
+.food-card:nth-child(2n+1) { margin-right: 4%; }
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+
+/* =========================================================
+   7. COMMON BUTTONS (기본 버튼 / 네이버 / 즐겨찾기)
+========================================================= */
+button {
+    background: #4b4b4b;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 12px 0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    transition: 0.25s;
+}
+
+button:hover { background: #2a2a2a; }
+
+/* 네이버 버튼 */
+.naver-btn {
+    background: #03c75a;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-left: 8px;
+}
+
+.naver-btn:hover { background: #029746; }
+
+/* 즐겨찾기 버튼 */
+.fav-btn {
+    background: #ffffff;
+    color: #444;
+    border: 1px solid #dddddd;
+    font-size: 12px;
+    padding: 6px 10px;
+    margin-left: 4px;
+    border-radius: 999px;
+}
+
+.fav-btn.on {
+    background: #ff4b6a;
+    border-color: #ff4b6a;
+    color: #fff;
+}
+
+
+/* =========================================================
+   8. INFO BOX (API 결과 등)
+========================================================= */
+.result-box {
+    margin-top: 12px;
+    padding: 16px;
+    background: #f9f9fb;
+    border-left: 6px solid #4b4b4b;
+    border-radius: 8px;
+    display: none;
+    line-height: 1.75;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.04);
+}
+
+
+/* =========================================================
+   9. SCHEDULE TABLE
+========================================================= */
+.schedule-input-box {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.schedule-input-box input {
+    flex: 1;
+    padding: 12px 14px;
+    border: 1.5px solid #cfd2d6;
+    border-radius: 10px;
+    background: #fafafa;
+}
+
+.schedule-input-box input:focus {
+    border-color: #4b4b4b;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+.schedule-table {
+    width: 100%;
+    background: #fff;
+    border-radius: 14px;
+    margin-top: 24px;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.06);
+}
+
+.schedule-table th {
+    background: #4b4b4b;
+    color: white;
+    padding: 14px;
+}
+
+.schedule-table td {
+    padding: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+.schedule-table tr:hover td { background: #f5f5f7; }
+
+
+/* =========================================================
+   10. LOGIN / SIGNUP PAGE BOX
+========================================================= */
+
+/* 🔹 로그인 페이지 중앙 배치 */
+.login-page {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 중앙 정렬 핵심 */
+    margin-top: 0 !important;
+}
+
+.login-box,
+.signup-box {
+    width: 360px;
+    background: #ffffff;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0px 4px 16px rgba(0,0,0,0.08);
+    border: 1px solid #e3e3e7;
+
+    text-align: center; /* 🔹 텍스트 중앙 배치 */
+}
+
+/* 🔹 라벨 중앙 */
+.login-box label,
+.signup-box label {
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+/* 🔹 입력창 텍스트/플레이스홀더 중앙 */
+.login-box input,
+.signup-box input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    margin-bottom: 14px;
+    border: 1px solid #cfcfcf;
+    border-radius: 10px;
+    background: #fafafa;
+    text-align: center;
+}
+
+.slide-in {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideIn 0.8s forwards ease-out;
+}
+
+@keyframes slideIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* =========================================================
+   11. SLIDER COMPONENT
+========================================================= */
+.slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.slide-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 22px;
+    font-weight: 700;
+    padding: 0;
+    line-height: 1;
+}
+
+
+/* =========================================================
+   12. SEARCH BOX
+========================================================= */
+.search-box {
+    margin: 10px 0 20px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #cfd2d6;
+    background: #fafafa;
+}
+
+
+/* =========================================================
+   13. FOOTER
+========================================================= */
+footer {
+    text-align: center;
+    margin-top: 80px;
+    padding: 25px;
+    font-size: 14px;
+    color: #777;
+}
+
+#topBtn {
+    padding: 8px 16px;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   14. ANIMATIONS
+========================================================= */
+.fade-in {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeIn 0.7s forwards ease-out;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* =========================================================
+   15. DARK MODE THEME
+========================================================= */
+body.dark-mode {
+    background-color: #1c1c1e;
+    color: #f5f5f7;
+}
+
+body.dark-mode header {
+    background: #2c2c2e;
+    border-bottom: 1px solid #3a3a3c;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.6);
+}
+
+body.dark-mode .site-title { color: #f5f5f7; }
+
+body.dark-mode .main-nav li a { color: #e5e5ea; }
+
+body.dark-mode .main-nav li a:hover {
+    background: #3a3a3c;
+    color: #ffffff;
+}
+
+body.dark-mode .hero,
+body.dark-mode .place-card,
+body.dark-mode .food-card,
+body.dark-mode .login-box,
+body.dark-mode .signup-box {
+    background: #2c2c2e;
+    border-color: #3a3a3c;
+}
+
+body.dark-mode .result-box {
+    background: #2b2b2d;
+    border-left-color: #8e8e93;
+}
+
+body.dark-mode .schedule-table {
+    background: #2c2c2e;
+    border-color: #3a3a3c;
+}
+
+body.dark-mode .schedule-input-box input,
+body.dark-mode .search-box input {
+    background: #3a3a3c;
+    border-color: #4d4d4f;
+    color: #f5f5f7;
+}
+
+body.dark-mode .theme-btn {
+    background: #3a3a3c;
+    border-color: #555;
+    color: #f2f2f7;
+}
+
+body.dark-mode .fav-btn {
+    background: #3a3a3c;
+    border-color: #555;
+    color: #f2f2f7;
+}
+
+body.dark-mode footer { color: #9a9aa0; }
+
+
+/* =========================================================
+   16. OCEAN MODE THEME
+========================================================= */
+body.ocean-mode {
+    background: #eaf7ff;
+    color: #064f6f;
+}
+
+body.ocean-mode header {
+    background: #0a6fae;
+    border-bottom: 1px solid #0a5584;
+}
+
+body.ocean-mode .site-title { color: #ffffff; }
+
+body.ocean-mode .main-nav li a { color: #d8f2ff; }
+
+body.ocean-mode .main-nav li a:hover {
+    background: #0e78bb;
+    color: #ffffff;
+}
+
+body.ocean-mode .hero,
+body.ocean-mode .place-card,
+body.ocean-mode .food-card,
+body.ocean-mode .login-box,
+body.ocean-mode .signup-box {
+    background: #ffffff;
+    border-color: #b5e7ff;
+}
+
+body.ocean-mode .result-box {
+    background: #e1f3ff;
+    border-left-color: #0a6fae;
+}
+
+body.ocean-mode .theme-btn {
+    background: #0a6fae;
+    border-color: #0a6fae;
+    color: white;
+}
+
+body.ocean-mode footer { color: #0a6fae; }
+
+
+/* =========================================================
+   17. RESPONSIVE (MOBILE)
+========================================================= */
+@media (max-width: 768px) {
+    .place-card,
+    .food-card {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .right-nav {
+        position: static;
+        margin-top: 10px;
+        justify-content: center;
+    }
+
+    .img-box {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* 18. LOGIN / SIGNUP BUTTON 통일 스타일 */
+.main-btn {
+    display: block;
+    width: 100%;
+    height: 48px;
+    background: #4b4b4b;
+    color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 48px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 12px;
+    transition: 0.25s;
+
+    padding: 0;              /* 🔹 버튼 패딩 제거해서 세로 중앙 맞추기 */
+}
+
+/* 버튼 요소일 때 확실히 덮어쓰기 하고 싶으면 이렇게 추가해도 됨 */
+button.main-btn {
+    padding: 0;
+}

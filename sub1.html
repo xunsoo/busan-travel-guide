@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관광지 소개</title>
+
+    <!-- ===============================
+         CSS 연결
+    ================================== -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="page-fade">
+
+<!-- ===============================
+     1. 헤더 네비게이션 영역
+================================== -->
+<header>
+    <div class="nav-container">
+
+        <!-- 사이트 제목 -->
+        <h1 class="site-title">부산 관광지 소개</h1>
+
+        <!-- 상단 메뉴 -->
+        <ul class="main-nav">
+            <li><a href="index.html">홈</a></li>
+            <li><a href="sub1.html">관광지 소개</a></li>
+            <li><a href="sub2.html">맛집 / 일정</a></li>
+        </ul>
+
+        <!-- 오른쪽 버튼 (테마 변경, 유저, 로그아웃) -->
+        <div class="right-nav">
+            <button id="themeToggle" class="theme-btn">🌙 다크 모드</button>
+            <span id="welcomeUser"></span>
+            <button id="logoutBtn" class="logout-btn">로그아웃</button>
+        </div>
+
+    </div>
+</header>
+
+
+
+<!-- ===============================
+     2. 메인 콘텐츠 (관광지 추천 + 리스트)
+================================== -->
+<main>
+
+    <!-- 랜덤 관광지 추천 -->
+    <section class="hero fade-in">
+        <h2>오늘 어디 갈까?</h2>
+        <p>버튼을 눌러 오늘의 추천 여행지를 확인하세요!</p>
+
+        <button id="randomPlaceBtn">랜덤 여행지 추천</button>
+        <div id="randomPlaceBox" class="result-box"></div>
+    </section>
+
+    <!-- 관광지 리스트 제목 -->
+    <h2 class="fade-in">부산 인기 관광지</h2>
+
+    <!-- 검색창 -->
+    <div class="search-box fade-in">
+        <input type="text" id="placeSearch" placeholder="관광지 검색 (예: 해운대, 감천, 태종대)">
+    </div>
+
+    <!-- 관광지 카드 목록 -->
+    <section class="card-list clearfix fade-in">
+
+        <!-- 각 관광지 카드 구조 동일 -->
+
+        <article class="place-card">
+            <h3>1. 해운대 해수욕장</h3>
+            <div class="img-box">
+                <img src="images/haeundae.jpg" class="main-img">
+            </div>
+            <button onclick="toggleBox('t1')">설명 보기</button>
+            <a class="naver-btn" target="_blank"
+               href="https://map.naver.com/p/search/해운대%20해수욕장">네이버 리뷰</a>
+            <button class="fav-btn" data-fav-type="place" data-fav-name="해운대 해수욕장">♡ 찜하기</button>
+            <div id="t1" class="result-box">
+                부산 최고의 바다 풍경과 야경을 즐길 수 있는 대표 해수욕장입니다.
+            </div>
+        </article>
+
+        <article class="place-card">
+            <h3>2. 광안리 해변</h3>
+            <div class="img-box">
+                <img src="images/gwangalli.jpg" class="main-img">
+            </div>
+            <button onclick="toggleBox('t2')">설명 보기</button>
+            <a class="naver-btn" target="_blank"
+               href="https://map.naver.com/p/search/광안리%20해수욕장">네이버 리뷰</a>
+            <button class="fav-btn" data-fav-type="place" data-fav-name="광안리 해변">♡ 찜하기</button>
+            <div id="t2" class="result-box">
+                광안대교 야경이 아름답고 감성 카페가 가득한 해변입니다.
+            </div>
+        </article>
+
+        <article class="place-card">
+            <h3>3. 감천문화마을</h3>
+            <div class="img-box">
+                <img src="images/gamcheon.jpg" class="main-img">
+            </div>
+            <button onclick="toggleBox('t3')">설명 보기</button>
+            <a class="naver-btn" target="_blank"
+               href="https://map.naver.com/p/search/감천문화마을">네이버 리뷰</a>
+            <button class="fav-btn" data-fav-type="place" data-fav-name="감천문화마을">♡ 찜하기</button>
+            <div id="t3" class="result-box">
+                알록달록한 마을과 포토존이 많아 사진 찍기 좋은 예술 마을입니다.
+            </div>
+        </article>
+
+        <article class="place-card">
+            <h3>4. 태종대</h3>
+            <div class="img-box">
+                <img src="images/taejongdae.jpg" class="main-img">
+            </div>
+            <button onclick="toggleBox('t4')">설명 보기</button>
+            <a class="naver-btn" target="_blank"
+               href="https://map.naver.com/p/search/태종대">네이버 리뷰</a>
+            <button class="fav-btn" data-fav-type="place" data-fav-name="태종대">♡ 찜하기</button>
+            <div id="t4" class="result-box">
+                기암절벽·울창한 숲·바다가 조화를 이루는 부산 최고의 자연 명소입니다.
+            </div>
+        </article>
+
+        <article class="place-card">
+            <h3>5. 오륙도 스카이워크</h3>
+            <div class="img-box">
+                <img src="images/oryukdo.jpg" class="main-img">
+            </div>
+            <button onclick="toggleBox('t5')">설명 보기</button>
+            <a class="naver-btn" target="_blank"
+               href="https://map.naver.com/p/search/오륙도%20스카이워크">네이버 리뷰</a>
+            <button class="fav-btn" data-fav-type="place" data-fav-name="오륙도 스카이워크">♡ 찜하기</button>
+            <div id="t5" class="result-box">
+                유리 바닥 아래 펼쳐진 바다 풍경이 짜릿함을 주는 명소입니다.
+            </div>
+        </article>
+
+        <article class="place-card">
+            <h3>6. 자갈치 시장</h3>
+            <div class="img-box">
+                <img src="images/jagalchi.jpg" class="main-img">
+            </div>
+            <button onclick="toggleBox('t6')">설명 보기</button>
+            <a class="naver-btn" target="_blank"
+               href="https://map.naver.com/p/search/자갈치시장">네이버 리뷰</a>
+            <button class="fav-btn" data-fav-type="place" data-fav-name="자갈치 시장">♡ 찜하기</button>
+            <div id="t6" class="result-box">
+                부산 대표 수산 시장으로 신선한 해산물을 맛볼 수 있는 곳입니다.
+            </div>
+        </article>
+
+    </section>
+
+</main>
+
+
+
+<!-- ===============================
+     3. 푸터
+================================== -->
+<footer>
+    <p>© 2025 부산 여행 가이드</p>
+    <button id="topBtn">▲ 맨 위로</button>
+</footer>
+
+
+<!-- ===============================
+     4. JavaScript 연결
+================================== -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

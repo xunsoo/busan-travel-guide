@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부산 여행 가이드</title>
+
+    <!-- ===============================
+         CSS 연결
+    ================================== -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="page-fade">
+
+<!-- ===============================
+     1. 헤더 & 내비게이션
+================================== -->
+<header>
+    <div class="nav-container">
+
+        <h1 class="site-title">부산 여행 가이드</h1>
+
+        <!-- 메인 네비게이션 -->
+        <ul class="main-nav">
+            <li><a href="index.html">홈</a></li>
+            <li><a href="sub1.html">관광지 소개</a></li>
+            <li><a href="sub2.html">맛집 / 일정</a></li>
+        </ul>
+
+        <!-- 우측 기능 영역 (테마, 로그인, 로그아웃) -->
+        <div class="right-nav">
+            <button id="themeToggle" class="theme-btn">🌙 다크 모드</button>
+            <span id="welcomeUser"></span>
+            <button id="logoutBtn" class="logout-btn">로그아웃</button>
+        </div>
+
+    </div>
+</header>
+
+
+<!-- ===============================
+     2. 메인 콘텐츠
+================================== -->
+<main>
+
+    <!-- ===============================
+         2-1. 부산 메인 슬라이더
+    ================================== -->
+    <section class="hero fade-in">
+        <h2>오늘의 부산</h2>
+        <p>부산의 풍경을 슬라이더로 감상해보세요.</p>
+
+        <div class="slider">
+            <button class="slide-btn" id="prevSlide">‹</button>
+
+            <div class="img-box">
+                <img id="mainSlide" class="main-img" src="images/haeundae2.jpg" alt="부산 풍경">
+            </div>
+
+            <button class="slide-btn" id="nextSlide">›</button>
+        </div>
+    </section>
+
+    <!-- ===============================
+         2-2. 실시간 부산 날씨
+    ================================== -->
+    <section class="hero fade-in">
+        <h2>부산 실시간 날씨</h2>
+        <p>Open-Meteo API를 이용한 오늘의 부산 날씨입니다.</p>
+
+        <button id="weatherBtn">오늘의 날씨 보기</button>
+        <div id="weatherBox" class="result-box"></div>
+    </section>
+
+    <!-- ===============================
+         2-3. 실시간 부산 행사 (공공데이터 API)
+    ================================== -->
+    <section class="hero fade-in">
+        <h2>부산 행사</h2>
+        <p>부산에서 열리는 실제 축제/행사 정보를 확인하세요.</p>
+
+        <button id="eventBtn">행사 불러오기</button>
+        <div id="eventBox" class="result-box"></div>
+    </section>
+
+</main>
+
+
+<!-- ===============================
+     3. 푸터
+================================== -->
+<footer>
+    <p>© 2025 부산 여행 가이드</p>
+    <button id="topBtn">▲ 맨 위로</button>
+</footer>
+
+
+<!-- ===============================
+     4. JavaScript 연결
+================================== -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

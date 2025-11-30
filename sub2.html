@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>맛집 / 여행 일정</title>
+
+    <!-- ===============================
+         CSS 연결
+    ================================== -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="page-fade">
+
+<!-- ===============================
+     1. 헤더 네비게이션 영역
+================================== -->
+<header>
+    <div class="nav-container">
+
+        <!-- 페이지 제목 -->
+        <h1 class="site-title">부산 맛집 & 여행 일정</h1>
+
+        <!-- 상단 메뉴 -->
+        <ul class="main-nav">
+            <li><a href="index.html">홈</a></li>
+            <li><a href="sub1.html">관광지 소개</a></li>
+            <li><a href="sub2.html">맛집 / 일정</a></li>
+        </ul>
+
+        <!-- 오른쪽 버튼 모음 -->
+        <div class="right-nav">
+            <button id="themeToggle" class="theme-btn">🌙 다크 모드</button>
+            <span id="welcomeUser"></span>
+            <button id="logoutBtn" class="logout-btn">로그아웃</button>
+        </div>
+
+    </div>
+</header>
+
+
+
+<!-- ===============================
+     2. 메인 콘텐츠 (맛집 추천 + 리스트)
+================================== -->
+<main>
+
+    <!-- 랜덤 맛집 추천 -->
+    <section class="hero fade-in">
+        <h2>오늘 뭐 먹지?</h2>
+        <p>버튼을 누르면 부산 맛집을 랜덤으로 추천합니다.</p>
+        <button id="randomFoodBtnSub">오늘의 추천 맛집 보기</button>
+        <div id="randomFoodResult" class="result-box"></div>
+    </section>
+
+
+    <!-- 맛집 추천 제목 -->
+    <h2 class="fade-in">부산 맛집 추천</h2>
+
+    <!-- 맛집 검색창 -->
+    <div class="search-box fade-in">
+        <input type="text" id="foodSearch" placeholder="맛집 검색 (예: 피자, 국밥, 돈까스)">
+    </div>
+
+
+    <!-- 맛집 카드 목록 -->
+    <section class="card-list clearfix fade-in">
+
+        <!-- 1. 수변최고돼지국밥 -->
+        <article class="food-card">
+            <h3>1. 수변최고돼지국밥</h3>
+            <div class="img-box">
+                <img src="images/porkSoup.jpg" class="main-img">
+            </div>
+            <button onclick="toggleBox('f1')">설명 보기</button>
+            <a class="naver-btn" target="_blank" 
+               href="https://map.naver.com/p/search/%EC%88%98%EB%B3%80%EC%B5%9C%EA%B3%A0%EB%8F%BC%EC%A7%80%EA%B5%AD%EB%B0%A5">
+               네이버 리뷰
+            </a>
+            <button class="fav-btn" data-fav-type="food" data-fav-name="수변최고돼지국밥">♡ 찜하기</button>
+            <div id="f1" class="result-box">
+                구수하고 깊은 맛의 돼지국밥으로 여행 피로를 풀기 좋습니다.
+            </div>
+        </article>
+
+        <!-- 2. 톤쇼우 돈까스 -->
+        <article class="food-card">
+            <h3>2. 톤쇼우 돈까스</h3>
+            <div class="img-box">
+                <img src="images/tonshow-hirekatsu-rare.jpg" class="main-img">
+            </div>
+            <button onclick="toggleBox('f2')">설명 보기</button>
+            <a class="naver-btn" target="_blank" 
+               href="https://map.naver.com/p/search/%ED%86%A4%EC%87%BC%EC%9A%B0%20%EA%B4%91%EC%95%88%EC%A0%90">
+               네이버 리뷰
+            </a>
+            <button class="fav-btn" data-fav-type="food" data-fav-name="톤쇼우 돈까스">♡ 찜하기</button>
+            <div id="f2" class="result-box">
+                촉촉한 레어 히레카츠로 유명한 부산 돈까스 맛집입니다. 
+                바삭한 튀김과 부드러운 육질이 매력적입니다.
+            </div>
+        </article>
+
+        <!-- 3. 매드독스 피자 -->
+        <article class="food-card">
+            <h3>3. 매드독스 피자</h3>
+            <div class="img-box">
+                <img src="images/maddogs-cheese-pull.jpg" class="main-img">
+            </div>
+            <button onclick="toggleBox('f3')">설명 보기</button>
+            <a class="naver-btn" target="_blank" 
+               href="https://map.naver.com/p/search/%EB%A7%A4%EB%93%9C%EB%8F%85%EC%8A%A4">
+               네이버 리뷰
+            </a>
+            <button class="fav-btn" data-fav-type="food" data-fav-name="매드독스 피자">♡ 찜하기</button>
+            <div id="f3" class="result-box">
+                치즈가 폭발하는 딥디시 스타일 피자로 유명합니다. 
+                진한 풍미와 쫀득한 치즈 식감이 일품입니다.
+            </div>
+        </article>
+
+        <!-- 4. 이재모 피자 -->
+        <article class="food-card">
+            <h3>4. 이재모 피자</h3>
+            <div class="img-box">
+                <img src="images/pizza.jpg" class="main-img">
+            </div>
+            <button onclick="toggleBox('f4')">설명 보기</button>
+            <a class="naver-btn" target="_blank" 
+               href="https://map.naver.com/p/search/%EC%9D%B4%EC%9E%AC%EB%AA%A8%ED%94%BC%EC%9E%90">
+               네이버 리뷰
+            </a>
+            <button class="fav-btn" data-fav-type="food" data-fav-name="이재모 피자">♡ 찜하기</button>
+            <div id="f4" class="result-box">
+                도우가 바삭하고 토핑이 풍부한 로컬 피자 맛집입니다.
+            </div>
+        </article>
+
+    </section>
+
+
+
+    <!-- ===============================
+         3. 여행 일정 기능
+    ================================== -->
+    <h2 class="fade-in" style="margin-top:50px;">1일 여행 일정표</h2>
+
+    <!-- 일정 입력 -->
+    <div class="schedule-input-box fade-in">
+        <input type="time" id="scheduleTime">
+        <input type="text" id="scheduleText" placeholder="일정 내용을 입력해주세요">
+        <button id="addScheduleBtn">추가</button>
+    </div>
+
+    <!-- 일정 테이블 -->
+    <table class="schedule-table fade-in" id="scheduleTable">
+        <tr><th>시간</th><th>내용</th><th>삭제</th></tr>
+    </table>
+
+
+
+    <!-- ===============================
+         4. 즐겨찾기 목록
+    ================================== -->
+    <section class="hero fade-in" style="margin-top:40px;">
+        <h2>내가 찜한 목록</h2>
+        <div id="favPlacesBox" class="result-box"></div>
+        <div id="favFoodsBox" class="result-box" style="margin-top:10px;"></div>
+    </section>
+
+</main>
+
+
+
+<!-- ===============================
+     5. 푸터
+================================== -->
+<footer>
+    <p>© 2025 부산 여행 가이드</p>
+    <button id="topBtn">▲ 맨 위로</button>
+</footer>
+
+
+<!-- ===============================
+     6. JavaScript 연결
+================================== -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
