@@ -165,10 +165,10 @@ if (welcomeUser && loginUser) {
    3. 기본 데이터(여행지 / 맛집 목록)
 ========================================================= */
 const placeData = [
-    { name: "해운대 해수욕장", img: "images/haeundae2.jpg", desc: "부산을 대표하는 해변." },
-    { name: "광안리 해변", img: "images/gwangalli2.jpg", desc: "광안대교 야경이 유명." },
-    { name: "감천문화마을", img: "images/gamcheon2.jpg", desc: "형형색색 예술 마을." },
-    { name: "태종대", img: "images/taejongdae2.jpg", desc: "절벽·숲·바다 조화 명소." },
+    { name: "해운대 해수욕장", img: "images/haeundae.jpg", desc: "부산을 대표하는 해변." },
+    { name: "광안리 해변", img: "images/gwangalli.jpg", desc: "광안대교 야경이 유명." },
+    { name: "감천문화마을", img: "images/gamcheon.jpg", desc: "형형색색 예술 마을." },
+    { name: "태종대", img: "images/taejongdae.jpg", desc: "절벽·숲·바다 조화 명소." },
     { name: "오륙도 스카이워크", img: "images/oryukdo.jpg", desc: "유리 바닥 바다 풍경." },
     { name: "자갈치 시장", img: "images/jagalchi.jpg", desc: "부산 대표 수산 시장." }
 ];
@@ -211,9 +211,9 @@ if (randomFoodBtnSub && randomFoodResult) {
    5. 이미지 슬라이더
 ========================================================= */
 const slideImages = [
-    "images/haeundae2.jpg",
-    "images/gwangalli2.jpg",
-    "images/gamcheon2.jpg",
+    "images/haeundae.jpg",
+    "images/gwangalli.jpg",
+    "images/gamcheon.jpg",
     "images/jagalchi.jpg",
     "images/oryukdo.jpg"
 ];
@@ -556,3 +556,4 @@ async function fetchBusanEventsXML() {
 }
 
 eventBtn.addEventListener("click", fetchBusanEventsXML);
+
